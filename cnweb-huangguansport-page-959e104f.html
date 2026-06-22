@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>再次遇见 · 皇冠体育 · 轻量导航页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f6fafb;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.7;
+      color: #1d2b2f;
+      padding: 0 1.2rem;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* 顶部导航简约留白 */
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0 1rem;
+      border-bottom: 1px solid #d9e6e9;
+    }
+
+    .site-header .brand {
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #1d5b63;
+    }
+
+    .site-header .brand span {
+      background: #d5eae9;
+      padding: 0.15rem 0.6rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      color: #15555e;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #2b5f68;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: #47a7b3;
+      color: #14464e;
+    }
+
+    .nav-links .highlight-link {
+      background: #d4ecee;
+      padding: 0.2rem 0.9rem;
+      border-radius: 40px;
+      font-weight: 500;
+    }
+
+    /* hero 简洁 */
+    .hero-wrap {
+      padding: 3.5rem 0 2.8rem;
+      text-align: center;
+    }
+
+    .hero-wrap h1 {
+      font-size: 2.25rem;
+      font-weight: 400;
+      color: #13474f;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-wrap .sub {
+      margin-top: 0.6rem;
+      font-size: 1.1rem;
+      color: #3e6f78;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* 介绍段落 – 自然叙述 */
+    .intro-card {
+      background: white;
+      padding: 2rem 2.2rem;
+      border-radius: 40px 12px 40px 12px;
+      box-shadow: 0 4px 12px rgba(28, 80, 88, 0.04);
+      margin: 1.2rem 0 2.8rem;
+    }
+
+    .intro-card p {
+      margin-bottom: 1.2rem;
+      color: #1f3f45;
+    }
+
+    .intro-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .inline-link {
+      color: #127b89;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid #a5cdd3;
+      transition: background 0.15s;
+    }
+
+    .inline-link:hover {
+      background: #e0f2f4;
+      border-bottom-color: #127b89;
+    }
+
+    /* 场景网格卡片 */
+    .scenes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2.5rem 0 3rem;
+    }
+
+    .scene-card {
+      background: #ffffff;
+      border-radius: 28px 8px 28px 8px;
+      padding: 1.8rem 1.4rem 2rem;
+      box-shadow: 0 5px 14px rgba(40, 110, 120, 0.03);
+      border: 1px solid #e4f0f2;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .scene-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(25, 95, 105, 0.06);
+      border-color: #b8d8de;
+    }
+
+    .scene-card .emoji-icon {
+      display: inline-block;
+      background: #d8edef;
+      border-radius: 50%;
+      width: 2.8rem;
+      height: 2.8rem;
+      line-height: 2.8rem;
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .scene-card h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #17565f;
+      margin-bottom: 0.4rem;
+    }
+
+    .scene-card p {
+      font-size: 0.95rem;
+      color: #375e66;
+    }
+
+    /* 常见说明折叠风格 */
+    .faq-section {
+      margin: 3.2rem 0 4rem;
+      background: #f0f8f9;
+      padding: 2rem 2.2rem;
+      border-radius: 30px 8px 30px 8px;
+    }
+
+    .faq-section h2 {
+      font-size: 1.4rem;
+      font-weight: 450;
+      color: #0e4b53;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.3px;
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 24px 6px 24px 6px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 0.8rem;
+      box-shadow: 0 2px 6px rgba(32, 92, 100, 0.02);
+      border-left: 5px solid #b0d7dc;
+    }
+
+    .faq-item .q {
+      font-weight: 500;
+      color: #1d555f;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .faq-item .a {
+      color: #3f676f;
+      font-size: 0.93rem;
+    }
+
+    /* 页脚 & 收藏提示 */
+    .footer-note {
+      border-top: 1px solid #d3e5e8;
+      padding: 2rem 0 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      color: #396f79;
+      font-size: 0.9rem;
+    }
+
+    .footer-note .bookmark-tip {
+      background: #deeef0;
+      padding: 0.25rem 1rem;
+      border-radius: 40px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 800px) {
+      .scenes-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .nav-links {
+        gap: 1.2rem;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 0.8rem 1.2rem;
+      }
+      .hero-wrap h1 {
+        font-size: 1.8rem;
+      }
+      .intro-card {
+        padding: 1.5rem 1.2rem;
+      }
+      .scenes-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .faq-section {
+        padding: 1.5rem 1.2rem;
+      }
+      .footer-note {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 380px) {
+      body {
+        padding: 0 0.8rem;
+      }
+      .nav-links a.highlight-link {
+        padding: 0.1rem 0.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      皇冠体育<span>轻导航</span>
+    </div>
+    <div class="nav-links">
+      <a href="#">场景</a>
+      <a href="#">说明</a>
+      <a href="#" class="highlight-link">收藏本站</a>
+    </div>
+  </header>
+
+  <div class="hero-wrap">
+    <h1>再次来到这里</h1>
+    <p class="sub">收藏、回顾，或只是随意看看——保持联系，慢慢习惯。</p>
+  </div>
+
+  <!-- 核心介绍段落，自然叙述 “再次访问 & 收藏” 的角度 -->
+  <div class="intro-card">
+    <p>
+      有些页面，你总会在某个时刻想起。也许是因为之前的浏览体验还算顺心，或者单纯想看看最近有什么更新。
+      如果你之前来过 <a href="https://cnweb-huangguansport.com" class="inline-link">皇冠体育</a>，
+      大概会记得那种简洁的节奏。这次我把它放在书签栏里，偶尔点开，不用刻意寻找。
+    </p>
+    <p>
+      把常用的站点收藏起来，其实是一种很轻的仪式感。相比每次重新搜索，收藏夹里的链接更像一个安静的入口，
+      你知道它在那里，不会被信息流冲散。<a href="https://cnweb-huangguansport.com" class="inline-link">皇冠体育</a>
+      的设计逻辑也是如此——没有冗余的弹窗和干扰，页面结构清晰，你很快就能找到需要的区域。
+      对于经常需要参考体育资讯或浏览动态的用户来说，这种克制反而让人更愿意停留。
+    </p>
+  </div>
+
+  <!-- 三个场景模块 -->
+  <div class="scenes-grid">
+    <div class="scene-card">
+      <div class="emoji-icon">📌</div>
+      <h3>再次打开</h3>
+      <p>从收藏夹或历史记录里找到它，直接回到上次离开的位置。不必重新适应布局，每一次访问都像昨天刚看过。</p>
+    </div>
+    <div class="scene-card">
+      <div class="emoji-icon">🔖</div>
+      <h3>顺手收藏</h3>
+      <p>在浏览器添加书签，或者使用“添加到主屏幕”。下次想浏览时，一瞥就能看到那个熟悉的名称。</p>
+    </div>
+    <div class="scene-card">
+      <div class="emoji-icon">🔄</div>
+      <h3>持续关注</h3>
+      <p>如果有空隔几天再回来看看，页面内容会随着时间自然更新。不用时刻盯着，偶尔的关注反而更轻松。</p>
+    </div>
+  </div>
+
+  <!-- 常见说明（FAQ 摘要） -->
+  <div class="faq-section">
+    <h2>一些平常的说明</h2>
+    <div class="faq-item">
+      <span class="q">▪ 页面访问流畅吗？</span>
+      <span class="a">大多数时候加载很快。如果遇到加载慢的情况，可以稍后刷新或检查网络。</span>
+    </div>
+    <div class="faq-item">
+      <span class="q">▪ 是否需要注册或登录？</span>
+      <span class="a">根据内容区域不同，部分功能可能需要账户。但浏览基本信息通常不需要额外操作。</span>
+    </div>
+    <div class="faq-item">
+      <span class="q">▪ 收藏后会不会变地址？</span>
+      <span class="a">目前主站稳定，如果未来有调整会提前说明。建议隔段时间确认一下收藏是否有效。</span>
+    </div>
+  </div>
+
+  <!-- 页脚 + 收藏提示 -->
+  <footer class="footer-note">
+    <div>
+      <a href="https://cnweb-huangguansport.com" class="inline-link" style="font-size:1rem;">皇冠体育</a>
+      <span style="margin-left:0.5rem;">· 持续陪伴</span>
+    </div>
+    <div class="bookmark-tip">
+      ⭐ 添加到收藏夹，下次更快找到
+    </div>
+  </footer>
+</body>
+</html>
